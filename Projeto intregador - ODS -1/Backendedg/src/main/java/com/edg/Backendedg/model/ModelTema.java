@@ -1,15 +1,13 @@
 package com.edg.Backendedg.model;
 
-import java.util.Date;
-
+import java.time.LocalDate;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import javax.validation.constraints.NotNull;
+
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 @Entity //classe com atributos
@@ -17,31 +15,30 @@ import javax.validation.constraints.Size;
 public class ModelTema {
   //Atributos
 	
-	@Id //Primary Key
-	@GeneratedValue (strategy=GenerationType.IDENTITY) // auto increment
+	@Id 
+	@GeneratedValue(strategy = GenerationType.IDENTITY) 
 	private Long id;
 	
-	@NotNull
-	@Size (min=1 , max=50, message="Limite de 50 Caracteres")
+	@NotBlank 
+	@Size(min = 1, max = 50, message = "Limite de 50 caracteres")
 	private String area;
 	
-	@NotNull
-	@Size (min=1 , max=50, message="Limite de 50 Caracteres")
+	@NotBlank 
+	@Size(min = 1, max = 50, message = "Limite de 50 caracteres")
 	private String tipo_de_acao;
 	
-	@NotNull
-	@Temporal(TemporalType.TIMESTAMP) //tira ou deixa?
-    private Date data; 
+	@NotBlank  
+	private LocalDate data;
 	
-	@NotNull
-	@Size (min=1 , max=50, message="Limite de 50 Caracteres")
+	@NotBlank  
+	@Size(min = 1, max = 50, message = "Limite de 50 caracteres")
 	private String publico;
 	
-	@NotNull
-	@Size (min=1 , max=50, message="Limite de 50 Caracteres")
+	@NotBlank  
+	@Size(min = 1, max = 50, message = "Limite de 50 caracteres")
 	private String cidade;
+	
 	public Long getId() {
-		
 		return id;
 	}
 	public void setId(Long id) {
@@ -53,16 +50,17 @@ public class ModelTema {
 	public void setArea(String area) {
 		this.area = area;
 	}
-	public String getAcao() {
+	public String getTipo_de_acao() {
 		return tipo_de_acao;
 	}
-	public void setAcao(String acao) {
-		this.tipo_de_acao = acao;
+	public void setTipo_de_acao(String tipo_de_acao) {
+		this.tipo_de_acao = tipo_de_acao;
 	}
-	public Date getData() {
+
+	public LocalDate getData() {
 		return data;
 	}
-	public void setData(Date data) {
+	public void setData(LocalDate data) {
 		this.data = data;
 	}
 	public String getPublico() {
@@ -76,7 +74,9 @@ public class ModelTema {
 	}
 	public void setCidade(String cidade) {
 		this.cidade = cidade;
-	} 
+	}
 	
 	
+	
+
 }
