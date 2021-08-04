@@ -62,7 +62,7 @@ public class TemaController {
 	
 	@GetMapping("/data/{data}")
 	public ResponseEntity<List<ModelTema>> GetByData (@PathVariable LocalDate data){
-		return ResponseEntity.ok(repository.findAllBydata(data));
+		return ResponseEntity.ok(repository.findAllByData(data));
 	}
 	
 	@PostMapping

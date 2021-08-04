@@ -18,7 +18,7 @@ import com.edg.Backendedg.model.ModelTema;
 		public List<ModelTema> findAllByTipo_de_acaoContainingignoreCase(String tipo_de_acao);
 		public List<ModelTema>findAllByPublicoContainingIgnoreCase(String publico);
 		public List<ModelTema>findAllByCidadeContainingIgnoreCase(String cidade);
-		public List<ModelTema> findAllByContainingignoreCase(LocalDate data); 
+		public List<ModelTema> findAllByData(LocalDate data); 
 		
 		
 		
