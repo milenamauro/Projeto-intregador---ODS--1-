@@ -29,7 +29,7 @@ public class Usuario {
 	private String email;
 	  
 	 @NotBlank 
-		@Size(min = 1, max = 8, message = "Limite de 8 caracteres")
+		@Size(min = 1,  message = "Limite de 8 caracteres")
 	private String senha;
 	
 	private boolean empresa;
@@ -37,13 +37,13 @@ public class Usuario {
 
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("usuario")
-	private List<ModelPostagem> postagens;
+	private List<Postagem> postagens;
 
-	public List< ModelPostagem> getPostagens() {
+	public List< Postagem> getPostagens() {
 		return postagens;
 	}
 
-	public void setPostagens(List< ModelPostagem> postagens) {
+	public void setPostagens(List< Postagem> postagens) {
 		this.postagens = postagens;
 	}
 

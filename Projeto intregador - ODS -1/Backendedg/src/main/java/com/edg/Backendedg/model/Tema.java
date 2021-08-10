@@ -1,6 +1,7 @@
 package com.edg.Backendedg.model;
 
 import java.time.LocalDate;
+
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -17,7 +18,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "tb_tema")
-public class ModelTema {
+public class Tema {
   //Atributos
 	
 	@Id 
@@ -45,12 +46,12 @@ public class ModelTema {
 	
 	@OneToMany(mappedBy = "tema", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("tema")
-	private List<ModelPostagem> postagens;
+	private List<Postagem> postagens;
 	
-	public List<ModelPostagem> getPostagens() {
+	public List<Postagem> getPostagens() {
 		return postagens;
 	}
-	public void setPostagens(List<ModelPostagem> postagens) {
+	public void setPostagens(List<Postagem> postagens) {
 		this.postagens = postagens;
 	}
 	public Long getId() {

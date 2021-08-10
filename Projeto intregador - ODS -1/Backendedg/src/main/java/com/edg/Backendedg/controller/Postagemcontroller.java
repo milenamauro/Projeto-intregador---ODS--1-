@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.edg.Backendedg.model.ModelPostagem;
+import com.edg.Backendedg.model.Postagem;
 import com.edg.Backendedg.repository.PostagemRepository;
 
 @RestController
@@ -27,29 +27,29 @@ public class Postagemcontroller {
 	private PostagemRepository repository;
 	
 	@GetMapping
-	public ResponseEntity<List<ModelPostagem>> getAll(){
+	public ResponseEntity<List<Postagem>> getAll(){
 		return ResponseEntity.ok(repository.findAll());
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<ModelPostagem> GetById(@PathVariable long id){
+	public ResponseEntity<Postagem> GetById(@PathVariable long id){
 		return repository.findById(id)
 				.map(resp -> ResponseEntity.ok(resp))
 				.orElse(ResponseEntity.notFound().build());
 	}
 	
 	@GetMapping("/titulo/{titulo}")
-	public ResponseEntity<List<ModelPostagem>> GetByTitulo(@PathVariable String titulo){
+	public ResponseEntity<List<Postagem>> GetByTitulo(@PathVariable String titulo){
 		return ResponseEntity.ok(repository.findAllByTituloContainingIgnoreCase(titulo));
 	}
 	
 	@PostMapping
-	public ResponseEntity<ModelPostagem> Post(@RequestBody ModelPostagem post){
+	public ResponseEntity<Postagem> Post(@RequestBody Postagem post){
 		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(post));
 	}
 	
 	@PutMapping
-	public ResponseEntity<ModelPostagem> Put(@RequestBody ModelPostagem put){
+	public ResponseEntity<Postagem> Put(@RequestBody Postagem put){
 		return ResponseEntity.status(HttpStatus.OK).body(repository.save(put));
 	}
 	
