@@ -47,26 +47,6 @@ public class UsuarioController {
 				.orElse(ResponseEntity.status(HttpStatus.BAD_REQUEST).build());
 	}
 
-	/*@Autowired
-	private UsuarioRepository repository;
-	@GetMapping
-	public ResponseEntity<List<Usuario>> getAll(){
-	return ResponseEntity.ok(repository.findAll());
-    }
-	@GetMapping("/{id}")
-	public ResponseEntity<Usuario> getById(@PathVariable long id ){
-		return repository.findById(id).map(resp-> ResponseEntity.ok(resp)).orElse(ResponseEntity.notFound().build());
-	}
-	@GetMapping("/nome/{nome}")
-	public ResponseEntity <List<Usuario>> getByNome(@PathVariable String nome){
-		return ResponseEntity.ok(repository.findAllByNomeContainingIgnoreCase(nome));
-	}
-	
-	@DeleteMapping("/{id}")
-	public String delete(@PathVariable long id) {
-		repository.deleteById(id);
-		return "Deletado";
-	}
-	*/
+ 
 
 }
